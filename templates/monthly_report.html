@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monthly Report | Personal Expense Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='monthly_report.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <header class="top-header">
+
+            <div>
+                <p class="breadcrumb">Pages / Monthly Report</p>
+
+                <h1>Monthly Report</h1>
+
+                <p class="page-description">
+                    Review your expenses for the selected month.
+                </p>
+            </div>
+
+            <a href="/" class="back-button">
+                ← Back to Dashboard
+            </a>
+
+        </header>
+
+        <!-- Summary Cards -->
+        <section class="report-summary">
+
+            <div class="summary-card">
+
+                <div class="summary-top">
+
+                    <div>
+                        <p class="summary-label">Total Expenses</p>
+
+                        <h2>
+                            ₹{{ "%.2f"|format(total_expenses|float) }}
+                        </h2>
+                    </div>
+
+                    <div class="summary-icon">₹</div>
+
+                </div>
+
+                <p class="summary-note">
+                    Total spending for the selected month
+                </p>
+
+            </div>
+
+            <div class="summary-card month-card">
+
+                <div class="summary-top">
+
+                    <div>
+                        <p class="summary-label">Selected Month</p>
+
+                        <h2>{{ selected_month }}</h2>
+                    </div>
+
+                    <div class="summary-icon calendar-icon">▦</div>
+
+                </div>
+
+                <p class="summary-note">
+                    Choose a month to view its report
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Expense Transactions -->
+        <section class="report-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Expense Transactions</h2>
+
+                    <p>
+                        All expenses recorded during this month.
+                    </p>
+                </div>
+
+                <!-- Month Filter -->
+                <form
+                    action="{{ url_for('monthly_report') }}"
+                    method="GET"
+                    class="month-filter"
+                >
+
+                    <label for="month">Select Month</label>
+
+                    <input
+                        type="month"
+                        id="month"
+                        name="month"
+                        value="{{ selected_month }}"
+                        required
+                    >
+
+                    <button type="submit">View Report</button>
+
+                </form>
+
+            </div>
+
+            <!-- Transactions Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Expense</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th class="amount-column">Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for expense in expenses %}
+
+                        <tr>
+
+                            <td class="date-cell">
+                                {{ expense.expense_date.strftime('%d %b %Y') if expense.expense_date else '-' }}
+                            </td>
+
+                            <td>
+                                <div class="expense-name">
+
+                                    <div class="expense-avatar">
+                                        {{ expense.title[0]|upper if expense.title else '?' }}
+                                    </div>
+
+                                    <span>{{ expense.title }}</span>
+
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="category-badge">
+                                    {{ expense.category }}
+                                </span>
+                            </td>
+
+                            <td class="description-cell">
+                                {{ expense.description or '-' }}
+                            </td>
+
+                            <td class="amount-cell">
+                                ₹{{ "%.2f"|format(expense.amount|float) }}
+                            </td>
+
+                        </tr>
+
+                        {% else %}
+
+                        <tr>
+                            <td colspan="5" class="empty-cell">
+
+                                <div class="empty-icon">▤</div>
+
+                                <h3>No Expenses Found</h3>
+
+                                <p>
+                                    No expenses were recorded for
+                                    {{ selected_month }}.
+                                </p>
+
+                                <a href="{{ url_for('add_expense') }}">
+                                    + Add Expense
+                                </a>
+
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Table Footer -->
+            <div class="table-footer">
+
+                <span>
+                    Total transactions: {{ expenses|length }}
+                </span>
+
+                <div class="footer-total">
+
+                    <span>Monthly Total</span>
+
+                    <strong>
+                        ₹{{ "%.2f"|format(total_expenses|float) }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Page Footer -->
+        <footer class="page-footer">
+            Personal Expense Tracker · Manage your finances wisely
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+
+/* =====================================
+   EDIT INCOME PAGE
+   Cream + Sage Green Design
+===================================== */
+
+:root {
+    --edit-cream: #f6f4ec;
+    --edit-white: #fffefa;
+    --edit-ink: #182a2d;
+    --edit-muted: #697579;
+    --edit-sage: #587766;
+    --edit-sage-dark: #456453;
+    --edit-sage-light: #dce4d6;
+    --edit-border: #deded5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Main Page */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 0% 0%, #e8e9dc 0, transparent 24%),
+        radial-gradient(circle at 100% 100%, #e3e8dc 0, transparent 25%),
+        var(--edit-cream);
+    color: var(--edit-ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.edit-income-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 35px 45px;
+}
+
+/* Header */
+
+.edit-income-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.edit-income-header h1 {
+    margin: 0;
+    color: var(--edit-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.edit-income-header .welcome-label {
+    margin: 0 0 9px;
+    color: var(--edit-sage);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.edit-income-header .header-subtitle {
+    margin: 8px 0 0;
+    color: #4f5e60;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Back to Dashboard */
+
+.edit-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 18px;
+    border: 1px solid var(--edit-sage);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--edit-sage-dark);
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.edit-back-link:hover {
+    background: var(--edit-sage-dark);
+    border-color: var(--edit-sage-dark);
+    color: #ffffff;
+}
+
+/* Form Container */
+
+.edit-income-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px;
+    background: rgba(255, 254, 250, 0.95);
+    border: 1px solid #e1dfd5;
+    border-radius: 13px;
+    box-shadow: 0 14px 36px rgba(48, 55, 44, 0.07);
+}
+
+/* Form Heading */
+
+.edit-income-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.edit-income-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+    background: var(--edit-sage-light);
+    color: var(--edit-sage-dark);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.edit-income-heading h2 {
+    margin: 0 0 5px;
+    color: var(--edit-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.edit-income-heading p {
+    margin: 0;
+    color: var(--edit-muted);
+    font-size: 13px;
+}
+
+/* Form Fields */
+
+.edit-income-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.edit-income-form-group label {
+    color: #344447;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.edit-income-form-group input,
+.edit-income-form-group textarea {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #d7d8d0;
+    border-radius: 8px;
+    outline: none;
+    background: var(--edit-white);
+    color: var(--edit-ink);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease,
+                box-shadow 0.15s ease;
+}
+
+.edit-income-form-group input:hover,
+.edit-income-form-group textarea:hover {
+    border-color: #aeb9ac;
+}
+
+.edit-income-form-group input:focus,
+.edit-income-form-group textarea:focus {
+    border-color: var(--edit-sage);
+    box-shadow: 0 0 0 3px rgba(88, 119, 102, 0.10);
+}
+
+.edit-income-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Cancel and Update Buttons */
+
+.edit-income-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.edit-income-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 18px;
+    background: transparent;
+    color: var(--edit-sage-dark);
+    border: 1px solid var(--edit-sage);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.edit-income-cancel:hover {
+    background: var(--edit-sage-dark);
+    border-color: var(--edit-sage-dark);
+    color: #ffffff;
+}
+
+.edit-income-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 145px;
+    min-height: 44px;
+    padding: 12px 18px;
+    background: var(--edit-sage);
+    color: #ffffff;
+    border: 1px solid var(--edit-sage);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-income-submit:hover {
+    background: var(--edit-sage-dark);
+    border-color: var(--edit-sage-dark);
+}
+
+/* Focus Accessibility */
+
+.edit-income-page a:focus-visible,
+.edit-income-page button:focus-visible {
+    outline: 2px solid var(--edit-sage);
+    outline-offset: 3px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .edit-income-page {
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 650px) {
+    .edit-income-page {
+        padding: 22px 14px;
+    }
+
+    .edit-income-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .edit-income-header h1 {
+        font-size: 27px;
+    }
+
+    .edit-income-container {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-income-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .edit-income-actions .edit-income-cancel,
+    .edit-income-actions .edit-income-submit {
+        width: 100%;
+    }
+}

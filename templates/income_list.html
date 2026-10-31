@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Income History - Personal Expense Tracker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='income_list.css') }}">
+</head>
+
+<body>
+
+    <main class="income-history-page">
+
+        <!-- Page Header -->
+        <header class="income-history-header">
+
+            <div>
+                <p class="welcome-label">YOUR FINANCIAL SPACE</p>
+
+                <h1>Income History</h1>
+
+                <p class="header-subtitle">
+                    View and manage all your income records.
+                </p>
+            </div>
+
+            <a href="{{ url_for('index') }}"
+               class="income-back-link">
+                ← Back to Dashboard
+            </a>
+
+        </header>
+
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+        <!-- Total Income -->
+        <section class="income-summary-section">
+
+            <div class="income-summary-card">
+                <p>Total Income</p>
+
+                <h2>
+                    ₹{{ "%.2f"|format(total_income|default(0)) }}
+                </h2>
+            </div>
+
+        </section>
+
+
+        <!-- Income Transactions -->
+        <section class="income-transactions-section">
+
+            <div class="income-section-heading">
+
+                <div>
+                    <p class="section-eyebrow">YOUR RECORDS</p>
+
+                    <h2>All Income Transactions</h2>
+                </div>
+
+                <a href="{{ url_for('add_income') }}"
+                   class="add-income-link">
+                    + Add Income
+                </a>
+
+            </div>
+
+
+            {% if incomes %}
+
+                <div class="income-table-responsive">
+
+                    <table class="income-table">
+
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Source</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for income in incomes %}
+
+                                <tr>
+
+                                    <td>{{ income.title }}</td>
+
+                                    <td>{{ income.source }}</td>
+
+                                    <td>{{ income.income_date }}</td>
+
+                                    <td class="income-amount">
+                                        +₹{{ "%.2f"|format(income.amount|float) }}
+                                    </td>
+
+                                    <td>
+                                        {{ income.description or '-' }}
+                                    </td>
+
+                                    <td>
+
+                                        <div class="income-action-buttons">
+
+                                            <a href="{{ url_for('edit_income', income_id=income.id) }}"
+                                               class="edit-income-button">
+                                                Edit
+                                            </a>
+
+                                            <form
+                                                action="{{ url_for('delete_income', income_id=income.id) }}"
+                                                method="POST"
+                                                style="display: inline;"
+                                                onsubmit="return confirm('Are you sure you want to delete this income?');"
+                                            >
+
+                                                <button type="submit">
+                                                    Delete
+                                                </button>
+
+                                            </form>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="no-income-records">
+
+                    <p>No income records found.</p>
+
+                    <a href="{{ url_for('add_income') }}"
+                       class="add-income-link">
+                        Add your first income
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>

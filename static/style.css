@@ -1,0 +1,1190 @@
+
+/* ==========================================
+   PERSONAL EXPENSE TRACKER
+   Premium Finance Theme
+   Cream + Sage Green + Elegant Typography
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f6f4ec;
+    --panel: #fffefa;
+    --panel-light: #f1f2e9;
+    --text: #182a2d;
+    --muted: #737e78;
+    --purple: #587766;
+    --green: #72967b;
+    --red: #c87572;
+    --blue: #78958b;
+    --border: #e1e0d6;
+    --sage-light: #e7ece2;
+    --sage-dark: #456453;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #e9eadd 0, transparent 26%),
+        var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* ==========================================
+   DASHBOARD MAIN LAYOUT
+   ========================================== */
+
+.dashboard-wrapper {
+    width: 100%;
+    max-width: 1800px;
+    min-height: calc(100vh - 32px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 235px minmax(0, 1fr);
+    gap: 25px;
+    padding: 24px;
+    background: rgba(255, 254, 250, 0.68);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(48, 55, 44, 0.055);
+}
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: -12px 0 -12px -12px;
+    padding: 26px 14px 18px;
+    color: #f8f7ef;
+    background: #233c32;
+    border-radius: 13px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 42px;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: #e7e9d9;
+    border: 1px solid #91a991;
+    border-radius: 50%;
+    font-size: 23px;
+}
+
+.logo-light {
+    color: #b8cfb4;
+}
+
+.nav-heading,
+.section-eyebrow,
+.welcome-label {
+    color: #82978a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.nav-heading {
+    margin: 0 0 14px 10px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 49px;
+    padding: 13px 14px;
+    color: #dce5dc;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #3d5c49;
+    border-color: #506d57;
+    color: #ffffff;
+}
+
+.nav-icon {
+    width: 24px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.sidebar-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding: 18px 0 4px;
+    border-top: 1px solid #41574a;
+}
+
+.sidebar-help-icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: #294334;
+    background: #e8ecdf;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.sidebar-bottom strong {
+    font-size: 12px;
+}
+
+.sidebar-bottom p {
+    margin-top: 5px;
+    color: #c0cec2;
+    font-size: 10px;
+}
+
+/* ==========================================
+   MAIN DASHBOARD CONTENT
+   ========================================== */
+
+.main-content {
+    min-width: 0;
+}
+
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.welcome-label {
+    margin-bottom: 9px;
+    color: var(--purple);
+}
+
+.top-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 2vw, 35px);
+    font-weight: 500;
+    letter-spacing: -0.7px;
+}
+
+.header-subtitle {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 13px 18px;
+    color: #fffefa;
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    border-radius: 8px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 650;
+    box-shadow: 0 4px 10px rgba(51, 78, 59, 0.12);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.add-button:hover {
+    background: var(--sage-dark);
+    transform: translateY(-1px);
+}
+
+/* Logged-in username box */
+
+.user-name-display {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    color: #ffffff;
+    background: #456453;
+    border: 1px solid #587766;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 650;
+    box-shadow: 0 4px 10px rgba(51, 78, 59, 0.12);
+    white-space: nowrap;
+}
+
+/* ==========================================
+   SUMMARY CARDS
+   ========================================== */
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.summary-card {
+    min-width: 0;
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(48, 55, 44, 0.025);
+}
+
+.balance-card {
+    background: #edf1e7;
+    border-color: #dce5d6;
+}
+
+.income-card {
+    background: #edf2ed;
+    border-color: #dce5dc;
+}
+
+.expense-card {
+    background: #f7eeea;
+    border-color: #eadbd3;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.card-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 650;
+}
+
+.balance-icon {
+    color: #42664e;
+    background: #dce7d5;
+}
+
+.income-icon {
+    color: #4c7960;
+    background: #dce9df;
+}
+
+.expense-icon {
+    color: #a65d59;
+    background: #f0deda;
+}
+
+.summary-card h2 {
+    margin-top: 17px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(19px, 1.6vw, 25px);
+    font-weight: 500;
+    letter-spacing: -0.4px;
+    overflow-wrap: anywhere;
+}
+
+.card-description {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   COMMON SECTION HEADINGS
+   ========================================== */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    margin-top: 7px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+.text-link,
+.view-all-link {
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.text-link:hover,
+.view-all-link:hover {
+    color: var(--sage-dark);
+}
+
+/* ==========================================
+   EXPENSE CATEGORIES
+   ========================================== */
+
+.categories-section {
+    min-width: 0;
+    margin-bottom: 22px;
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.category-card {
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(48, 55, 44, 0.055);
+}
+
+.category-icon {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 8px;
+    color: var(--sage-dark);
+    background: rgba(255, 254, 250, 0.8);
+    border: 1px solid rgba(88, 119, 102, 0.10);
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.category-card h3 {
+    font-size: 13px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.category-card p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.category-amount {
+    color: var(--text) !important;
+    font-weight: 700;
+}
+
+.category-progress {
+    width: 100%;
+    height: 6px;
+    margin-top: 12px;
+    overflow: hidden;
+    background: #e5e7de;
+    border-radius: 20px;
+}
+
+.category-progress progress {
+    display: block;
+    width: 100%;
+    height: 6px;
+    appearance: none;
+    border: 0;
+    background: transparent;
+}
+
+.category-progress progress::-webkit-progress-bar {
+    background: #e5e7de;
+    border-radius: 20px;
+}
+
+.category-progress progress::-webkit-progress-value {
+    background: #78967b;
+    border-radius: 20px;
+}
+
+.category-progress progress::-moz-progress-bar {
+    background: #78967b;
+    border-radius: 20px;
+}
+
+.category-percentage {
+    font-size: 11px;
+}
+
+.category-rent {
+    background: #f0f1e8;
+    border-color: #e1e4d6;
+}
+
+.category-transport {
+    background: #edf2ed;
+    border-color: #dce6dc;
+}
+
+.category-health {
+    background: #f7eeea;
+    border-color: #ecded7;
+}
+
+.category-groceries {
+    background: #f5f1e4;
+    border-color: #e8e1ca;
+}
+
+.empty-category {
+    grid-column: 1 / -1;
+    padding: 25px 10px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ==========================================
+   BOTTOM DASHBOARD: GRAPH + TRANSACTIONS
+   ========================================== */
+
+.dashboard-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: stretch;
+    gap: 18px;
+}
+
+.overview-section,
+.latest-transactions {
+    min-width: 0;
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.overview-heading {
+    margin-bottom: 15px;
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.chart-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chart-legend i {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.legend-income {
+    background: #789b80;
+}
+
+.legend-expense {
+    background: #c58a7d;
+}
+
+/* ==========================================
+   MONTHLY FINANCE CHART
+   ========================================== */
+
+.chart-container {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 8px;
+    height: 205px;
+}
+
+.chart-y-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 7px 0 26px;
+    color: #89948d;
+    font-size: 9px;
+    text-align: right;
+}
+
+.chart-main {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+}
+
+.overview-svg-chart {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.overview-svg-chart g {
+    stroke: #e7e6dd;
+}
+
+.overview-svg-chart text {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.overview-svg-chart rect[fill="#45d5ae"] {
+    fill: #91ad91;
+}
+
+.overview-svg-chart rect[fill="#8870ed"] {
+    fill: #c58a7d;
+}
+
+.overview-svg-chart polyline {
+    stroke: #587766;
+}
+
+.overview-svg-chart circle {
+    fill: #587766;
+}
+
+.chart-note {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   LATEST TRANSACTIONS
+   ========================================== */
+
+.latest-transactions {
+    display: flex;
+    flex-direction: column;
+}
+
+.latest-transactions .section-heading {
+    flex-shrink: 0;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 330px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 7px;
+    scrollbar-width: thin;
+    scrollbar-color: #9bad9b #edf0e8;
+}
+
+/* Transaction scrollbar */
+
+.transaction-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.transaction-list::-webkit-scrollbar-track {
+    background: #edf0e8;
+    border-radius: 10px;
+}
+
+.transaction-list::-webkit-scrollbar-thumb {
+    background: #9bad9b;
+    border-radius: 10px;
+}
+
+.transaction-list::-webkit-scrollbar-thumb:hover {
+    background: #587766;
+}
+
+.transaction-item {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.transaction-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: var(--sage-dark);
+    background: #e9eee4;
+    border: 1px solid #dfe6d9;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.transaction-details {
+    min-width: 0;
+}
+
+.transaction-details h3 {
+    overflow: hidden;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.transaction-details p {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 10px;
+    overflow-wrap: anywhere;
+}
+
+.transaction-amount {
+    grid-column: 2;
+    margin-top: -4px;
+    color: #b66e66;
+    font-size: 11px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.no-transactions {
+    padding: 25px 10px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.empty-icon {
+    display: block;
+    margin-bottom: 10px;
+    color: #809581;
+    font-size: 26px;
+}
+
+.no-transactions p {
+    font-size: 12px;
+}
+
+.view-all-link {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-top: 16px;
+}
+
+/* ==========================================
+   TRANSACTION EDIT AND DELETE BUTTONS
+   ========================================== */
+
+.transaction-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    grid-column: 2 / -1;
+    margin-top: 5px;
+}
+
+.transaction-actions form {
+    display: inline-flex;
+    width: auto;
+    margin: 0;
+}
+
+.transaction-action,
+.transaction-edit-button,
+.transaction-delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 11px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.transaction-edit,
+.transaction-edit-button {
+    color: #42664e;
+    background: #e9eee4;
+    border: 1px solid #d9e2d4;
+}
+
+.transaction-delete,
+.transaction-delete-button {
+    color: #a65d59;
+    background: #f7eeea;
+    border: 1px solid #eadbd3;
+}
+
+.transaction-actions button {
+    width: auto;
+}
+
+.transaction-action:hover,
+.transaction-edit-button:hover,
+.transaction-delete-button:hover {
+    opacity: 0.82;
+}
+
+/* ==========================================
+   FORM AND REPORT PAGES
+   ========================================== */
+
+.form-container,
+.report-container,
+.page-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: 0 8px 24px rgba(48, 55, 44, 0.035);
+}
+
+.form-container h1,
+.report-container h1,
+.page-container h1 {
+    margin-bottom: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    color: #4e5e55;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--text);
+    background: #fffefa;
+    border: 1px solid #dcded4;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(88, 119, 102, 0.10);
+}
+
+.form-group textarea,
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group select option,
+select option {
+    background: var(--panel);
+    color: var(--text);
+}
+
+.submit-button,
+.btn,
+button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    color: #fffefa;
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 650;
+    transition: background 0.2s;
+}
+
+.submit-button:hover,
+.btn:hover,
+button[type="submit"]:hover {
+    background: var(--sage-dark);
+}
+
+.cancel-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 12px 18px;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.cancel-button:hover {
+    background: var(--panel-light);
+}
+
+.message,
+.alert {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.success,
+.success-message {
+    color: #42664e;
+    background: #edf2e9;
+    border: 1px solid #d8e4d2;
+}
+
+.error,
+.error-message {
+    color: #a65d59;
+    background: #f7eeea;
+    border: 1px solid #eadbd3;
+}
+
+/* ==========================================
+   EDIT EXPENSE PAGE
+   ========================================== */
+
+.edit-page {
+    width: 100%;
+    max-width: 760px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.edit-card {
+    padding: 30px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: 0 8px 24px rgba(48, 55, 44, 0.04);
+}
+
+.edit-heading {
+    margin-bottom: 25px;
+}
+
+.edit-heading h1 {
+    margin-top: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    font-weight: 500;
+}
+
+.edit-subtitle {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.edit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.edit-actions .cancel-button {
+    margin-left: 0;
+}
+
+/* ==========================================
+   TABLES
+   ========================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text);
+    font-size: 12px;
+}
+
+th,
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    color: #596b60;
+    background: #f2f3eb;
+    font-weight: 650;
+}
+
+tr:hover td {
+    background: #faf9f3;
+}
+
+/* ==========================================
+   STANDALONE PAGES WITHOUT SIDEBAR
+   ========================================== */
+
+.report-standalone {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    background: transparent;
+}
+
+.report-standalone .main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 1250px) {
+
+    .dashboard-wrapper {
+        grid-template-columns: 215px minmax(0, 1fr);
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .sidebar {
+        margin: -8px 0 -8px -8px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .summary-card {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 760px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .dashboard-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .sidebar {
+        margin: 0;
+        padding: 18px 12px;
+        border-radius: 10px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .nav-link {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+
+    .nav-icon {
+        width: 20px;
+        font-size: 17px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .top-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .summary-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .summary-card h2 {
+        font-size: 24px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-container,
+    .report-container,
+    .page-container {
+        padding: 18px;
+    }
+
+    .edit-page {
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .edit-card {
+        padding: 18px;
+    }
+
+    .report-standalone {
+        padding: 12px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .dashboard-wrapper {
+        padding: 10px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .chart-legend {
+        gap: 8px;
+        font-size: 9px;
+    }
+
+    .overview-section,
+    .categories-section,
+    .latest-transactions {
+        padding: 13px;
+    }
+
+    .chart-container {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 4px;
+        height: 175px;
+    }
+
+    .category-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .transaction-actions {
+        gap: 5px;
+    }
+
+    .transaction-action {
+        padding: 6px 8px;
+    }
+}

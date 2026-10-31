@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Personal Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+    <main class="auth-page">
+        <header class="brand">
+            <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                    <path d="M24 39V18C24 9 15 5 7 7c0 12 5 20 17 20" fill="#9caf9b"/>
+                    <path d="M25 30C24 16 32 7 43 8c0 14-6 23-18 25" fill="#567663"/>
+                    <path d="M24 19v20" stroke="#f7f4eb" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div>
+                <div class="brand-name">Personal Expense Tracker</div>
+                <div class="brand-tagline">Track <span>·</span> Plan <span>·</span> Save</div>
+            </div>
+        </header>
+
+        <section class="auth-layout">
+            <aside class="welcome-panel">
+                <div class="welcome-copy">
+                    <p class="eyebrow">YOUR FINANCIAL JOURNEY</p>
+                    <h1>Take Control<br>of Your Finances</h1>
+                    <p>Create your account and start tracking your expenses, planning your budget, and building better financial habits.</p>
+                </div>
+
+                <div class="finance-art" aria-hidden="true">
+                    <div class="art-circle"></div>
+                    <div class="plant">
+                        <span class="leaf leaf-one"></span>
+                        <span class="leaf leaf-two"></span>
+                        <span class="leaf leaf-three"></span>
+                        <span class="leaf leaf-four"></span>
+                        <span class="plant-stem"></span>
+                        <span class="plant-pot"></span>
+                    </div>
+                    <div class="coin coin-one">₹</div>
+                    <div class="coin coin-two">₹</div>
+                    <div class="notebook">
+                        <span>Better Money</span>
+                        <span>Habits</span>
+                        <div class="notebook-line"></div>
+                    </div>
+                </div>
+
+                <p class="welcome-footer">Small steps today. Better finances tomorrow.</p>
+            </aside>
+
+            <section class="form-panel">
+                <div class="form-heading">
+                    <p class="eyebrow">GET STARTED</p>
+                    <h2>Create Account</h2>
+                    <p>Join us and start managing your personal finances with ease.</p>
+                </div>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="messages" role="status">
+                            {% for message in messages %}
+                                <p class="message">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('register') }}" method="POST">
+                    <div class="field">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name"
+                               maxlength="100" autocomplete="name"
+                               placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email"
+                               maxlength="255" autocomplete="email"
+                               placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password"
+                               minlength="8" autocomplete="new-password"
+                               placeholder="At least 8 characters" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" id="confirm_password"
+                               name="confirm_password" minlength="8"
+                               autocomplete="new-password"
+                               placeholder="Enter your password again" required>
+                    </div>
+
+                    <button class="primary-button" type="submit">Create Account</button>
+                </form>
+
+                <div class="form-divider"><span>Already have an account?</span></div>
+                <a class="secondary-button" href="{{ url_for('login') }}">Login</a>
+                <p class="secure-note">
+                    <span aria-hidden="true">●</span> Your financial information stays personal.
+                </p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

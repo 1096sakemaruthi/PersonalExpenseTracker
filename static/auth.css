@@ -1,0 +1,608 @@
+
+/* ==========================================
+   PREMIUM FINANCE - REGISTER & LOGIN
+   Cream, sage green and charcoal
+   ========================================== */
+
+:root {
+    --cream: #f6f4ec;
+    --cream-deep: #eeeee3;
+    --white: #fffefa;
+    --ink: #182a2d;
+    --muted: #697579;
+    --sage: #587766;
+    --sage-dark: #456453;
+    --sage-light: #dce4d6;
+    --border: #deded5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 0% 0%, #e8e9dc 0, transparent 24%),
+        radial-gradient(circle at 100% 100%, #e3e8dc 0, transparent 25%),
+        var(--cream);
+    font-family: "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.auth-page {
+    width: min(1240px, 100%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 28px 42px 38px;
+}
+
+/* Brand */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 30px;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+}
+
+.brand-mark svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.brand-tagline {
+    margin-top: 5px;
+    color: #738078;
+    font-size: 12px;
+    letter-spacing: 1.1px;
+}
+
+.brand-tagline span {
+    padding: 0 5px;
+    color: var(--sage);
+}
+
+/* Main two-column layout */
+
+.auth-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 450px);
+    align-items: center;
+    gap: clamp(35px, 6vw, 80px);
+    max-width: 1100px;
+    min-height: 650px;
+    margin: 0 auto;
+}
+
+.welcome-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 12px 0;
+}
+
+.welcome-copy {
+    max-width: 430px;
+}
+
+.eyebrow {
+    margin: 0 0 14px;
+    color: var(--sage);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.welcome-copy h1,
+.form-heading h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+}
+
+.welcome-copy h1 {
+    margin: 0 0 20px;
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.15;
+}
+
+.welcome-copy > p:last-child {
+    max-width: 390px;
+    margin: 0;
+    color: #4f5e60;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* Decorative finance illustration made with CSS */
+
+.finance-art {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    height: 300px;
+    margin: 12px 0 0 -5px;
+    overflow: hidden;
+}
+
+.art-circle {
+    position: absolute;
+    right: 5%;
+    bottom: 22px;
+    width: 78%;
+    height: 180px;
+    border-radius: 52% 48% 0 0;
+    background: linear-gradient(135deg, #dfe5d6, #e9eadf);
+}
+
+.plant {
+    position: absolute;
+    z-index: 2;
+    bottom: 73px;
+    left: 10%;
+    width: 130px;
+    height: 170px;
+}
+
+.plant-stem {
+    position: absolute;
+    bottom: 28px;
+    left: 64px;
+    width: 3px;
+    height: 105px;
+    border-radius: 5px;
+    background: #71886a;
+    transform: rotate(-3deg);
+}
+
+.leaf {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 43px;
+    height: 76px;
+    border: 1px solid rgba(37, 72, 48, 0.25);
+    border-radius: 100% 0 100% 0;
+    background: linear-gradient(135deg, #82996d, #3d654b);
+    transform-origin: bottom center;
+}
+
+.leaf-one {
+    bottom: 83px;
+    left: 26px;
+    transform: rotate(-43deg);
+}
+
+.leaf-two {
+    bottom: 101px;
+    left: 58px;
+    transform: rotate(13deg) scale(0.92);
+}
+
+.leaf-three {
+    bottom: 61px;
+    left: 67px;
+    transform: rotate(45deg) scale(0.83);
+}
+
+.leaf-four {
+    bottom: 55px;
+    left: 27px;
+    transform: rotate(-67deg) scale(0.78);
+}
+
+.plant-pot {
+    position: absolute;
+    bottom: 0;
+    left: 34px;
+    width: 70px;
+    height: 63px;
+    border-radius: 8px 8px 24px 24px;
+    background: linear-gradient(90deg, #e7e3d6, #fffdf4, #e1ddce);
+    box-shadow: 0 9px 15px rgba(47, 54, 41, 0.10);
+}
+
+.plant-pot::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -4px;
+    width: 78px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d8d3c3;
+}
+
+.coin {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border: 2px solid #b48b43;
+    border-radius: 50%;
+    background: #d9b66e;
+    color: #755521;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    box-shadow: 0 5px 8px rgba(75, 57, 22, 0.12);
+}
+
+.coin-one {
+    right: 18%;
+    bottom: 73px;
+}
+
+.coin-two {
+    right: 8%;
+    bottom: 84px;
+    transform: scale(0.83);
+}
+
+.notebook {
+    position: absolute;
+    z-index: 2;
+    right: 19%;
+    bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 82px;
+    border: 1px solid #ded8c9;
+    border-radius: 5px;
+    background: #fffdf5;
+    box-shadow: 0 8px 14px rgba(51, 54, 42, 0.10);
+    color: #46584e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+    transform: rotate(-8deg);
+}
+
+.notebook-line {
+    width: 54px;
+    margin-top: 7px;
+    border-bottom: 1px solid #8d9a84;
+}
+
+.welcome-footer {
+    margin: 5px 0 0;
+    color: #758078;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+}
+
+/* Form card */
+
+.form-panel {
+    width: 100%;
+    padding: 34px 32px 27px;
+    border: 1px solid #e1dfd5;
+    border-radius: 13px;
+    background: rgba(255, 254, 250, 0.93);
+    box-shadow: 0 14px 36px rgba(48, 55, 44, 0.07);
+}
+
+.form-heading {
+    margin-bottom: 25px;
+}
+
+.form-heading .eyebrow {
+    margin-bottom: 9px;
+}
+
+.form-heading h2 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.form-heading > p:last-child {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* Form controls */
+
+.form-panel form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.field label {
+    margin-bottom: 7px;
+    color: #344447;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.field input {
+    width: 100%;
+    min-height: 47px;
+    padding: 12px 13px;
+    border: 1px solid #d7d8d0;
+    border-radius: 8px;
+    outline: none;
+    background: #fffefa;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input::placeholder {
+    color: #9a9f9b;
+}
+
+.field input:hover {
+    border-color: #aeb9ac;
+}
+
+.field input:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(88, 119, 102, 0.10);
+}
+
+/* Buttons */
+
+.primary-button,
+.secondary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 47px;
+    padding: 12px 16px;
+    border: 1px solid var(--sage);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.primary-button {
+    margin-top: 3px;
+    background: var(--sage);
+    color: #ffffff;
+}
+
+.primary-button:hover {
+    border-color: var(--sage-dark);
+    background: var(--sage-dark);
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--sage-dark);
+}
+
+.secondary-button:hover {
+    background: #f0f3ec;
+}
+
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 23px 0 15px;
+    color: #737c78;
+    font-size: 12px;
+    text-align: center;
+}
+
+.form-divider::before,
+.form-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #d9dcd3;
+}
+
+.secure-note {
+    margin: 22px 0 0;
+    color: #78817b;
+    font-size: 11px;
+    text-align: center;
+}
+
+.secure-note span {
+    margin-right: 5px;
+    color: var(--sage);
+    font-size: 9px;
+}
+
+/* Flash messages */
+
+.messages {
+    margin-bottom: 18px;
+}
+
+.message {
+    margin: 0 0 8px;
+    padding: 11px 12px;
+    border: 1px solid #d8e2d5;
+    border-radius: 7px;
+    background: #f0f4ed;
+    color: #3e624b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.message:last-child {
+    margin-bottom: 0;
+}
+
+/* Login-specific spacing */
+
+.login-form-panel {
+    padding-top: 42px;
+    padding-bottom: 34px;
+}
+
+.login-layout .finance-art {
+    margin-top: 18px;
+}
+
+/* Keyboard focus */
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+    outline: 2px solid var(--sage);
+    outline-offset: 3px;
+}
+
+/* Responsive layout */
+
+@media (min-width: 1400px) {
+    .auth-page {
+        padding-top: 35px;
+    }
+}
+
+@media (max-width: 900px) {
+    .auth-page {
+        padding: 24px;
+    }
+
+    .auth-layout {
+        grid-template-columns: minmax(0, 0.9fr) minmax(350px, 1fr);
+        gap: 28px;
+        min-height: 600px;
+    }
+
+    .welcome-copy h1 {
+        font-size: 36px;
+    }
+
+    .finance-art {
+        transform: scale(0.92);
+        transform-origin: left center;
+        margin-right: -25px;
+    }
+
+    .form-panel {
+        padding: 30px 25px 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .auth-page {
+        padding: 20px 16px 30px;
+    }
+
+    .brand {
+        margin-bottom: 20px;
+    }
+
+    .brand-name {
+        font-size: 19px;
+    }
+
+    .brand-mark {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .auth-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        min-height: auto;
+        max-width: 460px;
+    }
+
+    .welcome-panel {
+        padding: 10px 2px 0;
+    }
+
+    .welcome-copy h1 {
+        font-size: 32px;
+    }
+
+    .welcome-copy h1 br {
+        display: none;
+    }
+
+    .welcome-copy > p:last-child {
+        font-size: 14px;
+    }
+
+    .finance-art {
+        height: 180px;
+        max-width: 330px;
+        margin: 5px auto 0;
+        transform: scale(0.78);
+        transform-origin: center top;
+        margin-bottom: -35px;
+    }
+
+    .welcome-footer {
+        margin-bottom: 10px;
+    }
+
+    .form-panel {
+        padding: 27px 23px 24px;
+    }
+
+    .form-heading h2 {
+        font-size: 29px;
+    }
+
+    .login-form-panel {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .form-panel {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .welcome-copy h1 {
+        font-size: 29px;
+    }
+}

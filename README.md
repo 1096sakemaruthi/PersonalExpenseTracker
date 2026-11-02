@@ -1,21 +1,29 @@
 # Personal Expense Tracker
 
-A beginner-friendly web application to manage personal income and expenses using Python, Flask, HTML, CSS, and MySQL.
+A web-based Personal Expense Tracker developed using Python, Flask, HTML, CSS, and MySQL. This application helps users manage their income and expenses, track transactions, monitor their balance, and view monthly expense reports.
 
 ## Features
 
-- Dashboard displaying total income, total expenses, and balance.
-- Add income records.
-- Add, edit, and delete expense records.
-- View recent transactions.
-- View monthly expense reports.
-- Form validation for required fields and positive amounts.
+- **User Registration:** Create a new account.
+- **User Login:** Log in securely to access the application.
+- **User Logout:** Securely log out from the application.
+- **Dashboard:** View total income, total expenses, and total balance.
+- **Add Expense:** Record new expenses with relevant details.
+- **Edit Expense:** Update existing expense records.
+- **Delete Expense:** Remove expense records.
+- **Add Income:** Record income details.
+- **Income History:** View recorded income transactions.
+- **Edit Income:** Update existing income records.
+- **Delete Income:** Remove income records.
+- **Monthly Report:** View monthly expense reports.
+- **Transaction Management:** Manage personal income and expense records.
 
 ## Technologies Used
 
 - Python
 - Flask
-- HTML and CSS
+- HTML
+- CSS
 - MySQL
 - MySQL Workbench
 
@@ -23,95 +31,150 @@ A beginner-friendly web application to manage personal income and expenses using
 
 ```text
 PersonalExpenseTracker/
+│
 ├── app.py
 ├── db.py
 ├── requirements.txt
 ├── README.md
-├── .env
 ├── .env.example
 ├── .gitignore
-├── templates/
-│   ├── index.html
-│   ├── add_expense.html
-│   ├── add_income.html
-│   ├── edit_expense.html
-│   └── monthly_report.html
-└── static/
-    ├── style.css
-    ├── add_expense.css
-    ├── add_income.css
-    └── monthly_report.css
+│
+├── static/
+│   ├── style.css
+│   ├── auth.css
+│   ├── add_expense.css
+│   ├── add_income.css
+│   ├── edit_expense.css
+│   ├── edit_income.css
+│   ├── income_list.css
+│   └── monthly_report.css
+│
+└── templates/
+    ├── index.html
+    ├── login.html
+    ├── register.html
+    ├── add_expense.html
+    ├── add_income.html
+    ├── edit_expense.html
+    ├── edit_income.html
+    ├── income_list.html
+    └── monthly_report.html
 ```
 
 ## Requirements
 
-- Python installed
-- MySQL Server running
-- MySQL Workbench for database management
-- Database credentials configured in `.env`
+Make sure the following software is installed:
 
-## Setup Instructions
+- Python
+- MySQL Server
+- MySQL Workbench
 
-1. Open MySQL Workbench and connect to your MySQL server.
-2. Make sure the `personal_expense_tracker` database and the required `expenses` and `income` tables exist.
-3. Create a `.env` file in the project root using `.env.example` as a template.
-4. Enter your own MySQL connection details in `.env`. Never share this file publicly.
-5. Open Command Prompt in the project folder.
-6. Create and activate a virtual environment if needed:
+## Installation and Setup
 
-   ```bat
-   python -m venv venv
-   venv\Scripts\activate
-   ```
+### 1. Clone the Repository
 
-7. Install the dependencies:
+```bash
+git clone https://github.com/1096sakemaruthi/PersonalExpenseTracker.git
+```
 
-   ```bat
-   pip install -r requirements.txt
-   ```
+### 2. Navigate to the Project Folder
+
+```bash
+cd PersonalExpenseTracker
+```
+
+### 3. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the Virtual Environment
+
+For Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 5. Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Configure Environment Variables
+
+Create a `.env` file in the project root directory using `.env.example` as a reference.
+
+Add your own MySQL connection details:
+
+```env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=personal_expense_tracker
+FLASK_SECRET_KEY=your_random_secret_key
+```
+
+Replace the example values with your actual database credentials and a secure secret key.
+
+**Important:** Never upload your `.env` file or share your database password publicly.
+
+### 7. Configure the MySQL Database
+
+- Open MySQL Workbench.
+- Connect to your MySQL Server.
+- Make sure the `personal_expense_tracker` database is available.
+- Make sure the required `expenses` and `income` tables are created with the columns used by the application.
 
 ## Run the Application
 
-Run these commands from the project folder with the virtual environment activated:
+### 1. Check MySQL Database Connection
 
-```bat
+```bash
 python db.py
+```
+
+If the connection is successful, the following message will appear:
+
+```text
+MySQL database connected successfully!
+```
+
+### 2. Start the Flask Application
+
+```bash
 python app.py
 ```
 
-If the database connection succeeds, start the application and open:
+### 3. Open the Application
 
+Open your web browser and visit:
+
+```text
 http://127.0.0.1:5000
-
-Keep the terminal running while using the application. Press `Ctrl+C` to stop the development server.
-
-## Validation Checks
-
-Test the Add Expense and Add Income forms:
-
-- Empty required fields should be rejected.
-- Negative amounts should be rejected.
-- Zero amounts should be rejected.
-- Valid positive amounts should save successfully.
-
-## Database Verification
-
-Run these queries in MySQL Workbench:
-
-```sql
-SELECT *
-FROM personal_expense_tracker.expenses
-ORDER BY expense_date DESC, id DESC;
-
-SELECT *
-FROM personal_expense_tracker.income
-ORDER BY income_date DESC, id DESC;
 ```
+
+Keep the Command Prompt running while using the application.
+
+To stop the Flask server, press `Ctrl + C`.
 
 ## Security Notes
 
-- Keep `.env` private.
-- Do not share database passwords in public repositories or project files.
-- `.gitignore` excludes `.env`, virtual environment folders, and Python cache files from Git.
-- Do not delete your local `venv` folder while using the project.
+- Keep your `.env` file private.
+- Never upload database passwords or secret keys to GitHub.
+- The `.gitignore` file excludes `.env`, virtual environment folders, and Python cache files.
+- Use `.env.example` as a reference for environment configuration.
 - This project is intended for local learning and development.
+
+## Author
+
+**Maruthi**
+
+GitHub: [1096sakemaruthi](https://github.com/1096sakemaruthi)
+
+## Repository
+
+[Personal Expense Tracker - GitHub](https://github.com/1096sakemaruthi/PersonalExpenseTracker)

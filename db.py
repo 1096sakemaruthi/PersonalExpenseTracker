@@ -8,6 +8,13 @@ from dotenv import load_dotenv
 # Load database settings from the .env file
 load_dotenv()
 
+# Get the CA certificate path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SSL_CA_PATH = os.getenv(
+    "DB_SSL_CA",
+    os.path.join(BASE_DIR, "ca.pem")
+)
+
 
 def get_db_connection():
     try:
@@ -19,7 +26,7 @@ def get_db_connection():
             database=os.getenv("DB_NAME", "defaultdb"),
 
             # Aiven SSL settings
-            ssl_ca=os.getenv("DB_SSL_CA"),
+            ssl_ca=SSL_CA_PATH,
             ssl_verify_cert=True
         )
 
